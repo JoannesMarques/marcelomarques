@@ -1210,3 +1210,46 @@ h3 {
 .testimonial:hover .watch-testimonial {
   color: var(--orange);
 }
+
+/* ---------- LINKS LEGAIS / DADOS DA EMPRESA ---------- */
+
+.footer-legal {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding-top: 18px;
+  margin-top: 8px;
+  border-top: 1px solid rgba(255, 255, 255, .16);
+  color: #dce5df;
+  font-size: 10px;
+}
+
+.footer-links {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.footer-links a {
+  color: #e5eae6;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.footer-links a:hover {
+  opacity: .8;
+}
+
+@media (max-width: 700px) {
+  .footer-legal {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .footer-links {
+    justify-content: flex-start;
+  }
+}
