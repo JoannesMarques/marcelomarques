@@ -92,11 +92,29 @@
           >
         </div>
 
-        <img
-          src="imagens/marcelo_image.jpeg"
-          alt="Marcelo Marques, terapeuta"
-          class="hero-image"
+        <button
+          class="hero-video-trigger"
+          type="button"
+          aria-label="Reproduzir vídeo de Marcelo Marques"
         >
+          <img
+            src="imagens/marcelo_image.jpeg"
+            alt="Marcelo Marques, terapeuta"
+            class="hero-image"
+          >
+          <span class="hero-video-prompt" aria-hidden="true">
+            <span class="hero-video-play">▶</span>
+            <span>Assistir vídeo</span>
+          </span>
+        </button>
+        <iframe
+          class="hero-video-embed"
+          title="Vídeo de Marcelo Marques"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen
+          hidden
+        ></iframe>
 
         <div class="experience-card">
           <strong>9+</strong>
@@ -851,6 +869,17 @@
       </div>
     </div>
   </footer>
+
+  <script>
+    const heroVideoTrigger = document.querySelector(".hero-video-trigger");
+    const heroVideoEmbed = document.querySelector(".hero-video-embed");
+
+    heroVideoTrigger.addEventListener("click", () => {
+      heroVideoEmbed.src = "https://www.youtube-nocookie.com/embed/hYSGWirOsjI?autoplay=1";
+      heroVideoEmbed.hidden = false;
+      heroVideoTrigger.remove();
+    });
+  </script>
 
 </body>
 </html>

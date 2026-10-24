@@ -280,10 +280,81 @@ h3 {
   position: relative;
 }
 
+.hero-video-trigger {
+  position: relative;
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  padding: 0;
+  border: 0;
+  border-radius: 23px;
+  background: transparent;
+  box-shadow: 0 12px 28px rgba(48, 36, 29, .12);
+  cursor: pointer;
+}
+
 .hero-image {
   height: 480px;
   border-radius: 23px;
+  transition: transform .25s ease;
+}
+
+.hero-video-embed {
+  display: block;
+  width: 100%;
+  height: 480px;
+  border: 0;
+  border-radius: 23px;
   box-shadow: 0 12px 28px rgba(48, 36, 29, .12);
+}
+
+.hero-video-embed[hidden] {
+  display: none;
+}
+
+.hero-video-prompt {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, .45);
+  background: rgba(20, 25, 22, .22);
+  transition: background .25s ease;
+}
+
+.hero-video-play {
+  display: grid;
+  width: 68px;
+  height: 68px;
+  place-items: center;
+  padding-left: 4px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  background: rgba(36, 48, 40, .72);
+  font-size: 25px;
+  line-height: 1;
+  text-shadow: none;
+}
+
+.hero-video-trigger:hover .hero-image,
+.hero-video-trigger:focus-visible .hero-image {
+  transform: scale(1.03);
+}
+
+.hero-video-trigger:hover .hero-video-prompt,
+.hero-video-trigger:focus-visible .hero-video-prompt {
+  background: rgba(20, 25, 22, .38);
+}
+
+.hero-video-trigger:focus-visible {
+  outline: 3px solid var(--green);
+  outline-offset: 4px;
 }
 
 .experience-card {
@@ -677,6 +748,28 @@ h3 {
     --container: 720px;
   }
 
+  .header {
+    height: auto;
+    min-height: 70px;
+  }
+
+  .nav {
+    min-height: 70px;
+    height: auto;
+    padding: 12px 0;
+    flex-wrap: wrap;
+    gap: 8px 14px;
+  }
+
+  .menu {
+    order: 3;
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 0;
+    gap: 6px clamp(12px, 3vw, 24px);
+  }
+
   .hero-grid,
   .about-grid {
     grid-template-columns: 1fr;
@@ -733,11 +826,7 @@ h3 {
   }
 
   .menu {
-    order: 3;
-    width: 100%;
-    justify-content: center;
-    margin: 5px 0 0;
-    gap: 20px;
+    gap: 6px 16px;
   }
 
   .menu a {
@@ -749,15 +838,19 @@ h3 {
   }
 
   h1 {
-    font-size: 46px;
+    font-size: clamp(36px, 8vw, 46px);
   }
 
   h2 {
-    font-size: 36px;
+    font-size: clamp(30px, 7.5vw, 36px);
   }
 
   .hero-image {
-    height: 390px;
+    height: clamp(260px, 82vw, 390px);
+  }
+
+  .hero-video-embed {
+    height: clamp(260px, 82vw, 390px);
   }
 
   .experience-card {
@@ -802,6 +895,48 @@ h3 {
 
 
 @media (max-width: 450px) {
+  .container {
+    width: min(calc(100% - 24px), var(--container));
+  }
+
+  .logo {
+    font-size: 17px;
+  }
+
+  .btn-small {
+    min-height: 36px;
+    padding: 0 14px;
+    font-size: 12px;
+  }
+
+  .hero {
+    padding: 45px 0 70px;
+  }
+
+  .experience-card {
+    width: 150px;
+    padding: 16px 18px;
+  }
+
+  .section,
+  .areas {
+    padding-top: 65px;
+    padding-bottom: 65px;
+  }
+
+  .service-body,
+  .idere-service {
+    padding: 24px;
+  }
+
+  .testimonial {
+    padding: 24px;
+  }
+
+  .cta {
+    padding: 70px 0 60px;
+  }
+
   .areas-grid {
     grid-template-columns: 1fr;
   }
@@ -1068,7 +1203,7 @@ h3 {
 .idere-logo-badge {
   position: absolute;
   top: -25px;
-  right: -25px;
+  right: -20px;
 
   width: 105px;
   height: 105px;
@@ -1094,6 +1229,27 @@ h3 {
   object-fit: contain;
   border-radius: 50%;
 }
+
+@media (max-width: 700px) {
+  .idere-logo-badge {
+    top: -16px;
+    right: -10px;
+    width: 82px;
+    height: 82px;
+    padding: 10px;
+  }
+}
+
+@media (max-width: 450px) {
+  .idere-logo-badge {
+    top: -12px;
+    right: -8px;
+    width: 70px;
+    height: 70px;
+    padding: 8px;
+  }
+}
+
 /* ---------- MÉTODOS TRG + PNL ---------- */
 
 .therapy-methods {
