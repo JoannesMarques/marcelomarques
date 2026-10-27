@@ -834,7 +834,17 @@ h3 {
   }
 
   .hero {
-    padding: 55px 0 80px;
+    padding: 20px 0 80px;
+  }
+
+  .hero-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .hero-image-wrap {
+    order: -1;
   }
 
   h1 {
@@ -910,7 +920,11 @@ h3 {
   }
 
   .hero {
-    padding: 45px 0 70px;
+    padding: 18px 0 70px;
+  }
+
+  .hero-grid {
+    gap: 32px;
   }
 
   .experience-card {
